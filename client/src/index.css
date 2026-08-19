@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
+
+:root {
+  /* Official Clean Credofix Brand Palette */
+  --cf-brown-primary: #5A3921;
+  --cf-brown-hover: #4A2E1A;
+  --cf-brown-light: #FDF8F5;
+  --cf-gold: #D4AF37;
+  
+  /* Apple-like Clean Light Surface */
+  --cf-apple-bg: #F5F5F7; /* Restored to clean off-white */
+  --cf-apple-card: #FFFFFF; /* White card */
+  --cf-apple-border: #E5E7EB;
+  --cf-apple-text: #1F2937;
+  --cf-apple-text-muted: #6B7280;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0px; /* Force 0px corners everywhere */
+}
+
+body {
+  background-color: var(--cf-apple-bg);
+  font-family: var(--font-sans);
+  color: var(--cf-apple-text);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Site Navbar - Premium Clean */
+.site-navbar {
+  background: var(--cf-brown-primary) !important; /* Button wala dark brown */
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-radius: 0px !important; /* Force sharp corners */
+}
+
+.site-navbar-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brand-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brand-credo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF !important;
+  letter-spacing: -0.5px;
+}
+
+.brand-fix {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--cf-brown-primary) !important;
+  background: #FFFFFF !important;
+  padding: 1px 6px;
+  border-radius: 4px;
+  line-height: 1.2;
+}
+
+.brand-tagline-below {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85) !important;
+  letter-spacing: 1.5px;
+  margin-top: 0px;
+  padding-left: 0px;
+}
+
+.lang-switch-btn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.lang-switch-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Page Layout */
+.app-viewport {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px 40px;
+}
+
+.redeem-card-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Apple-Style Smooth Cards */
+.credo-card {
+  background: var(--cf-apple-card);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid var(--cf-apple-border);
+}
+
+/* Hero Section */
+.credo-card-hero {
+  background: var(--cf-brown-light);
+  color: var(--cf-brown-primary);
+  padding: 28px 24px 24px;
+  text-align: center;
+  border-bottom: 1px solid rgba(90, 57, 33, 0.1);
+}
+
+.hero-subtitle {
+  color: var(--cf-brown-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--cf-brown-primary);
+  line-height: 1.2;
+}
+
+/* Big Clear Badges for Uneducated Users */
+.bottle-badges-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.bottle-badge-card {
+  background: #FFFFFF;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(196, 154, 69, 0.3);
+}
+
+.badge-bottle-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.badge-info-pack {
+  font-size: 0.75rem;
+  color: var(--cf-apple-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-info-reward {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--cf-gold-accent);
+  margin-top: 4px;
+}
+
+/* Card Body */
+.credo-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-header-title {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.form-header-title h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--cf-brown-primary);
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.form-header-title p {
+  font-size: 0.85rem;
+  color: var(--cf-apple-text-muted);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Big Clear Form Inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cf-apple-text);
+  display: block;
+}
+
+.scratch-code-input {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-family: monospace;
+  text-transform: uppercase;
+  border: 2px solid var(--cf-brown-primary) !important;
+  border-radius: 12px !important;
+  text-align: center;
+  outline: none;
+  background: var(--cf-brown-light) !important;
+  color: var(--cf-brown-primary) !important;
+  transition: all 0.2s ease;
+}
+
+.scratch-code-input:focus {
+  box-shadow: 0 0 0 4px rgba(90, 57, 33, 0.1);
+}
+
+.custom-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: 1.5px solid var(--cf-apple-border) !important;
+  border-radius: 12px !important;
+  outline: none;
+  background: #FFFFFF !important;
+  color: var(--cf-apple-text) !important;
+  transition: all 0.2s ease;
+}
+
+.custom-input:focus {
+  border-color: var(--cf-brown-primary) !important;
+  box-shadow: 0 0 0 3px rgba(90, 57, 33, 0.1);
+}
+
+/* Premium Button (ONLY ELEMENT WITH CORNER RADIUS) */
+.cf-btn-primary {
+  width: 100%;
+  background-color: var(--cf-brown-primary) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 12px !important; /* Only Button Has Border Radius */
+  padding: 18px 24px !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: all 0.2s ease !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px rgba(90, 57, 33, 0.2) !important;
+}
+
+.cf-btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* YouTube Embedded Video Box */
+.yt-video-box {
+  background: var(--cf-apple-card);
+  border: 1px solid var(--cf-apple-border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.yt-box-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.yt-box-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--cf-apple-text);
+}
+
+.yt-iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000000;
+}
+
+.yt-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.yt-text-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--cf-apple-border);
+  padding-top: 16px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--cf-apple-border);
+}
+
+.step-item:last-child {
+  border-bottom: none;
+}
+
+.step-number {
+  background: var(--cf-brown-primary);
+  color: #FFFFFF;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.step-text {
+  font-size: 0.95rem;
+  color: var(--cf-apple-text);
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 1px;
+}
+
+/* Success Receipt */
+.receipt-wrapper {
+  background: #F4FBF6;
+  border: 1.5px solid #A7F3D0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.receipt-row-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.receipt-row-key {
+  color: #065F46;
+  font-weight: 600;
+}
+
+.receipt-row-val {
+  font-weight: 800;
+  color: #047857;
+}
+
+.footer-trust-badge {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.trust-shield-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--cf-apple-text-muted);
+  font-weight: 500;
+}
+
+.admin-footer-link {
+  color: var(--cf-apple-text-muted);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 6px;
+  opacity: 0.5;
+}
+
+.admin-footer-link:hover {
+  opacity: 1;
+}
+
+/* Error Alert */
+.cf-alert-danger {
+  background: #FEF2F2;
+  border: 1.5px solid #F8B4B4;
+  color: #DC2626;
+  padding: 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,0 +1,175 @@
+{
+  "products": [
+    {
+      "id": "31",
+      "product_code": "31",
+      "product_name": "Credofix Gel Glue (125g)",
+      "pack_size": "125g",
+      "reward_amount": 10,
+      "status": "active",
+      "created_at": "2026-08-19T14:31:48.992Z",
+      "updated_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "32",
+      "product_code": "32",
+      "product_name": "Credofix Gel Glue (250g)",
+      "pack_size": "250g",
+      "reward_amount": 15,
+      "status": "active",
+      "created_at": "2026-08-19T14:31:48.993Z",
+      "updated_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "33",
+      "product_code": "33",
+      "product_name": "Credofix Heavy Duty Adhesive (500g)",
+      "pack_size": "500g",
+      "reward_amount": 25,
+      "status": "active",
+      "created_at": "2026-08-19T14:31:48.993Z",
+      "updated_at": "2026-08-19T14:31:48.993Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "camp_001",
+      "campaign_name": "Credofix Cashback Dhamaka 2026",
+      "start_date": "2026-01-01",
+      "end_date": "2026-12-31",
+      "status": "active",
+      "total_budget": 500000,
+      "created_at": "2026-08-19T14:31:48.993Z"
+    }
+  ],
+  "batches": [
+    {
+      "id": "batch_101",
+      "batch_number": "BATCH-2026-31-01",
+      "campaign_id": "camp_001",
+      "product_id": "31",
+      "product_code": "31",
+      "quantity": 10,
+      "reward_amount": 10,
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "batch_102",
+      "batch_number": "BATCH-2026-32-01",
+      "campaign_id": "camp_001",
+      "product_id": "32",
+      "product_code": "32",
+      "quantity": 10,
+      "reward_amount": 15,
+      "created_at": "2026-08-19T14:31:48.993Z"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "c_1001",
+      "code": "CF31-K7M9Q2",
+      "batch_id": "batch_101",
+      "product_id": "31",
+      "reward_amount": 10,
+      "status": "UNUSED",
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "c_1002",
+      "code": "CF31-P8X4L7",
+      "batch_id": "batch_101",
+      "product_id": "31",
+      "reward_amount": 10,
+      "status": "UNUSED",
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "c_1003",
+      "code": "CF31-X5T9L3",
+      "batch_id": "batch_101",
+      "product_id": "31",
+      "reward_amount": 10,
+      "status": "UNUSED",
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "c_1004",
+      "code": "CF31-DEMO10",
+      "batch_id": "batch_101",
+      "product_id": "31",
+      "reward_amount": 10,
+      "status": "UNUSED",
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "c_2001",
+      "code": "CF32-M5R8T2",
+      "batch_id": "batch_102",
+      "product_id": "32",
+      "reward_amount": 15,
+      "status": "UNUSED",
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "c_2002",
+      "code": "CF32-Q7N4K9",
+      "batch_id": "batch_102",
+      "product_id": "32",
+      "reward_amount": 15,
+      "status": "UNUSED",
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "c_2003",
+      "code": "CF32-DEMO15",
+      "batch_id": "batch_102",
+      "product_id": "32",
+      "reward_amount": 15,
+      "status": "UNUSED",
+      "created_at": "2026-08-19T14:31:48.993Z"
+    },
+    {
+      "id": "c_9001",
+      "code": "CF31-USED01",
+      "batch_id": "batch_101",
+      "product_id": "31",
+      "reward_amount": 10,
+      "status": "PAID",
+      "redeemed_at": "2026-08-18T14:31:48.993Z",
+      "created_at": "2026-08-17T14:31:48.993Z"
+    }
+  ],
+  "redemptions": [
+    {
+      "id": "red_9001",
+      "coupon_id": "c_9001",
+      "coupon_code": "CF31-USED01",
+      "product_id": "31",
+      "product_name": "Credofix Gel Glue (125g)",
+      "reward_amount": 10,
+      "customer_mobile": "9876543210",
+      "upi_id": "rahul@upi",
+      "verified_name": "Rahul Kumar",
+      "ip_address": "127.0.0.1",
+      "device_id": "dev_browser_hash",
+      "status": "PAID",
+      "created_at": "2026-08-18T14:31:48.993Z"
+    }
+  ],
+  "payouts": [
+    {
+      "id": "payout_9001",
+      "redemption_id": "red_9001",
+      "coupon_code": "CF31-USED01",
+      "reward_amount": 10,
+      "upi_id": "rahul@upi",
+      "provider": "RazorpayX_Mock",
+      "reference_id": "REF-983172101",
+      "utr": "UTR-88237192301",
+      "status": "SUCCESS",
+      "failure_reason": null,
+      "created_at": "2026-08-18T14:31:48.993Z"
+    }
+  ],
+  "fraud_logs": []
+}
