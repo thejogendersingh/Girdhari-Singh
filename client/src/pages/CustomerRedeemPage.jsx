@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { PackageOpen, Youtube, CheckCircle2, AlertTriangle, IndianRupee, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { PackageOpen, Youtube, CheckCircle2, AlertTriangle, IndianRupee, ShieldCheck, ChevronLeft, ChevronRight, Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
 
 const TRANSLATIONS = {
   hi: {
     formTitle: 'अपना कैशबैक प्राप्त करें',
     formSubtitle: 'कैशबैक सीधे आपके बैंक खाते में भेजने के लिए नीचे सही जानकारी भरें।',
-    nameLabel: '1. आपका नाम (Your Name)',
+    nameLabel: 'आपका नाम (Your Name)',
     namePlaceholder: 'यहाँ अपना नाम लिखें',
-    mobileLabel: '2. आपका Paytm / PhonePe नंबर',
+    mobileLabel: 'आपका Paytm / PhonePe नंबर',
     mobilePlaceholder: '10 अंकों का मोबाइल नंबर डालें',
-    codeLabel: '3. कूपन कोड (Bottle के पीछे से)',
+    codeLabel: 'कूपन कोड (Bottle के पीछे से)',
     codePlaceholder: '8-DIGIT CODE',
     claimBtn: 'Cashback प्राप्त करें',
     verifying: 'वेरिफाई हो रहा है...',
@@ -24,8 +24,11 @@ const TRANSLATIONS = {
     product: 'प्रोडक्ट (Product)',
     nextCode: 'दूसरा कोड डालें',
     videoTitle: 'कैशबैक कैसे लें? (Video Guide)',
+    step1Title: 'Scratch Code',
     step1: 'Bottle के पीछे दिया गया कोड खुरचें (Scratch)।',
+    step2Title: 'Enter Details',
     step2: 'ऊपर फॉर्म में अपना नाम, मोबाइल नंबर और 8-अंकों का कोड डालें।',
+    step3Title: 'Get Cashback',
     step3: 'बटन दबाएं और पैसा सीधे आपके Paytm/बैंक में आ जाएगा।',
     secure: '100% Secure & Guaranteed',
     admin: 'Admin Login'
@@ -33,11 +36,11 @@ const TRANSLATIONS = {
   en: {
     formTitle: 'Claim Your Cashback',
     formSubtitle: 'Fill in correct details below to receive cashback directly in your bank.',
-    nameLabel: '1. Your Name',
+    nameLabel: 'Your Name',
     namePlaceholder: 'Enter your full name',
-    mobileLabel: '2. Your Paytm / PhonePe Number',
+    mobileLabel: 'Your Paytm / PhonePe Number',
     mobilePlaceholder: 'Enter 10 digit mobile number',
-    codeLabel: '3. Coupon Code (From back of bottle)',
+    codeLabel: 'Coupon Code (From back of bottle)',
     codePlaceholder: '8-DIGIT CODE',
     claimBtn: 'Claim Cashback',
     verifying: 'Verifying...',
@@ -52,8 +55,11 @@ const TRANSLATIONS = {
     product: 'Product',
     nextCode: 'Enter Another Code',
     videoTitle: 'How to claim? (Video Guide)',
+    step1Title: 'Scratch Code',
     step1: 'Scratch the code given on the back of the bottle.',
+    step2Title: 'Enter Details',
     step2: 'Enter your name, mobile number and 8-digit code in the form above.',
+    step3Title: 'Get Cashback',
     step3: 'Click the button and money will be sent directly to your Paytm/Bank.',
     secure: '100% Secure & Guaranteed',
     admin: 'Admin Login'
@@ -72,6 +78,27 @@ function CustomerRedeemPage({ lang = 'hi' }) {
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [message, setMessage] = useState('');
   const [receipt, setReceipt] = useState(null);
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const carouselImages = [
+    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1));
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -146,19 +173,95 @@ function CustomerRedeemPage({ lang = 'hi' }) {
       {/* Premium Apple-Style Form Card */}
       <div className="credo-card">
         
-        {/* Premium Furniture Image Hero Banner */}
-        <div className="credo-card-hero-image">
+        {/* Premium Furniture Image Hero Banner Carousel */}
+        <div className="credo-card-hero-image" style={{ position: 'relative' }}>
           <img 
-            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+            src={carouselImages[currentImageIndex]} 
             alt="Credofix Rewards" 
             style={{ 
               width: '100%', 
               height: 'auto', 
               display: 'block', 
               aspectRatio: '16/9', 
-              objectFit: 'cover' 
+              objectFit: 'cover',
+              transition: 'all 0.5s ease-in-out'
             }} 
           />
+
+          {/* Navigation Arrows */}
+          <button 
+            onClick={(e) => { e.preventDefault(); prevImage(); }}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '10px',
+              transform: 'translateY(-50%)',
+              background: 'rgba(0,0,0,0.4)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 2,
+              backdropFilter: 'blur(4px)'
+            }}
+          >
+            <ChevronLeft size={18} />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.preventDefault(); nextImage(); }}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              right: '10px',
+              transform: 'translateY(-50%)',
+              background: 'rgba(0,0,0,0.4)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 2,
+              backdropFilter: 'blur(4px)'
+            }}
+          >
+            <ChevronRight size={18} />
+          </button>
+
+          {/* Dots Indicator */}
+          <div style={{
+            position: 'absolute',
+            bottom: '12px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            gap: '6px',
+            zIndex: 2
+          }}>
+            {carouselImages.map((_, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: currentImageIndex === idx ? 'white' : 'rgba(255,255,255,0.5)',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s'
+                }}
+                onClick={() => setCurrentImageIndex(idx)}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Input Form Body */}
@@ -293,34 +396,61 @@ function CustomerRedeemPage({ lang = 'hi' }) {
           ></iframe>
         </div>
 
-        {/* Instructions */}
+        {/* Premium Timeline Instructions */}
         <div className="yt-text-instructions">
           <div className="step-item">
-            <span className="step-number">1</span>
-            <p className="step-text">{t.step1}</p>
+            <div className="step-number">1</div>
+            <div className="step-text-wrap">
+              <h5 className="step-title">{t.step1Title}</h5>
+              <p className="step-text">{t.step1}</p>
+            </div>
           </div>
           <div className="step-item">
-            <span className="step-number">2</span>
-            <p className="step-text">{t.step2}</p>
+            <div className="step-number">2</div>
+            <div className="step-text-wrap">
+              <h5 className="step-title">{t.step2Title}</h5>
+              <p className="step-text">{t.step2}</p>
+            </div>
           </div>
           <div className="step-item">
-            <span className="step-number">3</span>
-            <p className="step-text">{t.step3}</p>
+            <div className="step-number">3</div>
+            <div className="step-text-wrap">
+              <h5 className="step-title">{t.step3Title}</h5>
+              <p className="step-text">{t.step3}</p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Premium Trust Footer */}
-      <div className="footer-trust-badge">
+      <footer className="footer-trust-badge">
         <div className="trust-shield-box">
-          <ShieldCheck size={18} color="#059669" />
-          <span style={{ color: '#059669' }}>{t.secure}</span>
+          <ShieldCheck size={22} />
+          <span>{t.secure}</span>
         </div>
+        
+        <div className="footer-company-info">
+          <p className="footer-company-name">Dungar Chemicals (CredoFix Rewards)</p>
+          <div className="footer-contact-row">
+            <span style={{ display: 'flex', alignItems: 'center' }}><Mail size={14} style={{marginRight: '6px'}}/> support@credofix.in</span>
+            <span className="footer-dot">•</span>
+            <span style={{ display: 'flex', alignItems: 'center' }}><Phone size={14} style={{marginRight: '6px'}}/> +91 98765 43210</span>
+          </div>
+        </div>
+
+        <div className="footer-policy-links">
+          <a href="#">Terms & Conditions</a>
+          <span className="footer-dot">•</span>
+          <a href="#">Privacy Policy</a>
+          <span className="footer-dot">•</span>
+          <a href="#">Refund Policy</a>
+        </div>
+
         <div className="footer-copyright">
-          &copy; 2026 Credofix Rewards. 
+          &copy; 2026 Credofix Rewards. All rights reserved.
           <a href="/?admin=true" className="admin-footer-link">{t.admin}</a>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }

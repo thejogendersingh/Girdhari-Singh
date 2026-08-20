@@ -5,18 +5,29 @@ export default function Navbar({ lang, setLang }) {
   return (
     <nav className="site-navbar">
       <div className="site-navbar-inner">
-        {/* Brand Logo: Logo + (Credo fix + PREMIUM ADHESIVE) */}
-        <div className="brand-header-left" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {/* Premium Adhesive Bottle SVG Logo spanning both lines perfectly */}
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="5 2 14 21" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ height: 44, width: 'auto' }}>
-            <path d="M7 10v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V10" />
-            <path d="M7 10C7 8 10 7 10 5" />
-            <path d="M17 10C17 8 14 7 14 5" />
-            <path d="M10 5V3h4v2" />
-            <path d="M9 3h6" />
-            <circle cx="12" cy="14" r="2" fill="#D4AF37" stroke="none" />
-          </svg>
+        {/* Brand Logo: Image Logo + Text */}
+        <div className="brand-header-left" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          {/* Circular Image Logo Placeholder */}
+          <div style={{ 
+            width: '42px', 
+            height: '42px', 
+            borderRadius: '50%', 
+            backgroundColor: 'rgba(255,255,255,0.1)', 
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
+            border: '1.5px solid rgba(255,255,255,0.2)'
+          }}>
+            <img 
+              src="/logo.png" 
+              alt="" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+          </div>
 
+          {/* Text Logo */}
           <div className="brand-text-column" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="brand-title-wrap" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span className="brand-credo">Credo</span>
