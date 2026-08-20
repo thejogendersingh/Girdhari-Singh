@@ -169,8 +169,9 @@ function CustomerRedeemPage({ lang = 'hi' }) {
   };
 
   return (
-    <div className="redeem-card-container">
-      {/* Premium Apple-Style Form Card */}
+    <div className="app-viewport">
+      <div className="redeem-card-container">
+        {/* Premium Apple-Style Form Card */}
       <div className="credo-card">
         
         {/* Premium Furniture Image Hero Banner Carousel */}
@@ -451,6 +452,7 @@ function CustomerRedeemPage({ lang = 'hi' }) {
           <a href="/?admin=true" className="admin-footer-link">{t.admin}</a>
         </div>
       </footer>
+    </div>
     </div>
   );
 }
