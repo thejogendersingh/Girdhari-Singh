@@ -128,7 +128,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 0 60px 0; /* Removed left/right and top gap for mobile edge-to-edge */
+  padding: 0; /* Removed all padding so footer goes flush to bottom */
 }
 
 .redeem-card-container {
