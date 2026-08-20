@@ -341,18 +341,16 @@ body {
 
 .yt-box-title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--cf-apple-text);
+  color: var(--cf-brown-primary);
 }
 
 .yt-iframe-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  background: #000000;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background: #000;
 }
 
 .yt-iframe-container iframe {
@@ -363,28 +361,28 @@ body {
   height: 100%;
 }
 
+/* Premium Timeline Instructions */
 .yt-text-instructions {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 24px 8px 8px;
+  gap: 20px;
+  padding: 20px 8px 8px;
 }
 
 .step-item {
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
 }
 
 /* Connecting Line */
 .step-item:not(:last-child)::after {
   content: '';
   position: absolute;
-  left: 17px; /* Center of the 36px circle (17px is roughly the center since 36/2 = 18, we can use 17px left to account for border/padding if needed. Actually 18px is center) */
-  left: 17px;
-  top: 36px; 
-  bottom: -24px; 
+  left: 13px; /* Center of the 28px circle */
+  top: 28px; 
+  bottom: -20px; 
   width: 2px;
   background: rgba(212, 175, 55, 0.3); /* Gold line */
 }
@@ -392,16 +390,16 @@ body {
 .step-number {
   background: #FFFFFF;
   color: var(--cf-brown-primary);
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
-  border: 2.5px solid var(--cf-gold);
+  border: 2px solid var(--cf-gold);
   border-radius: 50% !important; /* Force circle for premium look */
   box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
   z-index: 2;
@@ -410,21 +408,21 @@ body {
 .step-text-wrap {
   display: flex;
   flex-direction: column;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 .step-title {
-  font-size: 1.05rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--cf-brown-primary);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .step-text {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: var(--cf-apple-text-muted);
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 /* Success Receipt */
