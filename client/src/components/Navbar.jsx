@@ -42,8 +42,9 @@ export default function Navbar({ lang, setLang }) {
           onClick={() => setLang(lang === 'hi' ? 'en' : 'hi')}
           title="Switch Language"
         >
-          <Languages className="w-3.5 h-3.5" />
+          <Languages size={14} />
           <span>{lang === 'hi' ? 'English' : 'हिंदी'}</span>
+          <span style={{ fontSize: '0.65rem', marginLeft: '2px', opacity: 0.8 }}>▼</span>
         </button>
       </div>
     </nav>
